@@ -1,1 +1,0 @@
-# karndeepbaror.github.io
