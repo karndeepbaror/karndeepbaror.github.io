@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Incrafy – From Street To Screens 🌏</title>
+  
+  <!-- Google Fonts: Modern and bold -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --accent: #635bff;
+      --accent-dark: #2a2c37;
+      --bg: #181622;
+      --bg-card: #232134bb;
+      --brand-pink: #ff44bb;
+      --soft: #f3f3f3;
+      --fade: #ece7fc22;
+      --radius: 1.5rem;
+    }
+    html,body {
+      margin:0;
+      padding:0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: #f8f8fa;
+      min-height:100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {color:var(--accent);}
+    img {max-width:100%;display:block;}
+    /* === Hero Section === */
+    .hero {
+      background: linear-gradient(120deg, var(--accent) 70%, var(--brand-pink) 120%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.2rem 1rem 2.7rem 1rem;
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+      text-align: center;
+      position: relative;
+      overflow:hidden;
+      box-shadow:0 6px 32px #0003;
+    }
+    .hero-logo {
+      width: 70px; height:70px;
+      border-radius: 2rem;
+      background: #fff2;
+      object-fit:cover;
+      margin-bottom:.8em;
+      display: inline-block;
+      box-shadow:0 3px 27px #fff5;
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.0rem;
+      font-weight:700;
+      letter-spacing:.02em;
+      color: #fff;
+      background:linear-gradient(90deg, #fff 65%,var(--brand-pink) 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin-bottom:.45em;
+    }
+    .hero-owner-row {
+      display:flex;
+      gap:.9em;
+      align-items: center;
+      justify-content: center;
+      margin-bottom:1.3em;
+    }
+    .owner-img {
+      width:44px;height:44px;object-fit:cover;border-radius:50%;background:#fff5;box-shadow:0 0 0 5px var(--fade);
+      border:2px solid #fff3;
+    }
+    .owner-name {
+      font-size:1.1em;font-weight:700;
+      color:#fff;
+      letter-spacing:.01em;
+      margin-top:.12em;
+    }
+    .hero-tagline {
+      display:block;
+      color: #fdecff;
+      font-size:1.13em;
+      margin-top:.22em;
+      margin-bottom:.7em;
+      font-weight:500;
+      letter-spacing:.13em;
+      text-shadow:0 1px 0 #2222;
+    }
+    .hero-socials {
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      margin-top:.5em;
+      margin-bottom:-.8em;
+    }
+    .hero-socials a {
+      background:rgba(255,255,255,0.13);
+      padding:.7em .80em;
+      border-radius:14px;
+      color:#fff;
+      font-size:1.42em;
+      transition:.18s;
+      box-shadow:0 2px 8px #fff2;
+      display:grid;
+      place-items:center;
+    }
+    .hero-socials a:hover {background:#fff2;color:var(--brand-pink);}
+    /* ==== Section Card ==== */
+    .section, .card {
+      margin-top:2.3rem;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow:0 2px 18px #13122a28;
+      padding: 2rem 1.1rem 1.7rem 1.1rem;
+      position:relative;
+      transition:.23s;
+    }
+    .section-title {
+      font-family:'Space Grotesk',sans-serif;
+      color:var(--accent);
+      font-weight:700;
+      letter-spacing:.05em;
+      font-size:1.18em;
+      margin-bottom:1.6em;
+      text-align: left;
+      display:flex;align-items:center;gap:.45em;
+    }
+    .section-title .fa-star {color:var(--brand-pink);}
+    /* ==== Services (Card Grid, bento-inspired) ==== */
+    .services-grid {
+      display:grid; grid-gap:1.00em;
+      grid-template-columns: repeat(auto-fit,minmax(175px,1fr));
+      margin-top:1rem;
+    }
+    .service-card {
+      background:linear-gradient(122deg,#241E44 85%,#ff2b87ce 100%);
+      border-radius:1.22em;
+      box-shadow:0 2px 14px #635bff2a;
+      display:flex;flex-direction:column;align-items:center;
+      min-width:120px;
+      padding:1.18em .85em 1.05em .85em;
+      text-align:center;
+      transition:.16s;
+      position:relative;
+    }
+    .service-card:hover {
+      background:linear-gradient(120deg,#ff44bb 50%,#635bff 120%);
+      transform:translateY(-7px) scale(1.04) rotate(-1.6deg);
+      box-shadow:0 8px 30px #635bff44;
+    }
+    .service-ico {
+      font-size:2em;
+      color:var(--brand-pink);
+      margin-bottom:.57em;
+      background:rgba(255,255,255,0.09);
+      padding:.34em;
+      border-radius:.5em;
+      box-shadow:0 1px 7px #fff4;
+    }
+    .service-title {
+      font-weight:700;
+      margin-bottom:0;
+      color: #f3f3fa;
+      font-size:1.07em;
+    }
+    .service-desc {
+      font-size:.93em;
+      color:#eee8;
+      margin-top:.18em;
+    }
+    /* ==== Projects Grid ==== */
+    .projects-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      grid-gap:1em;
+      margin-top:1em;
+    }
+    .project-card {
+      background: linear-gradient(110deg, #23203d 80%, #fabcdc38 120%);
+      border-radius:1.15em;
+      box-shadow:0 1.6px 9px #fff3;
+      padding:1.1em .9em .90em .9em;
+      font-size:.99em;
+      margin-bottom:.1em;
+      position:relative;
+      transition:.19s;
+      border:1.2px solid #fff1;
+      min-height:120px;
+    }
+    .project-card:hover { border:1.2px solid var(--brand-pink);}
+    .project-title {font-weight:800;font-size:1.09em;color:var(--accent);}
+    .project-info {color:#c69afd;}
+    .project-desc {color:#eee; margin-top:.5em; font-size:.95em;}
+    .project-date { font-size:.85em; color:#f4c7ff; margin-top:.14em;}
+    /* ==== Testimonials ==== */
+    .testimonials-list {display:grid;gap:.65em;}
+    .testimonial {
+      background:linear-gradient(96deg,#281231 60%,#ff44bb61 120%);
+      color: #fff;
+      border-left: 5px solid var(--brand-pink);
+      border-radius:.95em;
+      font-size:1.03em;
+      padding:.93em .87em .7em 1.3em;
+      font-style:italic; box-shadow:0 2px 14px #ff44bb23;
+      position:relative;
+    }
+    .testimonial::before {content:"“";font-size:2.1em;color:var(--brand-pink);position:absolute;left:13px;top:8px;opacity:.6;}
+    .testimonial-client {color:#b2fff3;font-size:.93em;font-style:normal;margin-top:.4em;}
+    /* ==== Contact ==== */
+    .contact-form {display:grid;gap:1.2em;margin-top:1.1em;}
+    .contact-form input, .contact-form textarea {
+      background:#f8f8faee;color:#19183b;font-weight:700;
+      border:none;padding:.95em 1em;border-radius:.7em;font-size:1.08em;font-family:inherit;
+      box-shadow:0 1.2px 7px #fff3;
+    }
+    .contact-form textarea{resize:vertical;}
+    .contact-form button {
+      background: linear-gradient(93deg,var(--accent) 30%,var(--brand-pink) 100%);
+      color: #fff;
+      border:none;padding:1em 2em;font-size:1.13em;border-radius:.9em;
+      cursor:pointer;font-weight:700;
+      box-shadow:0 2px 8px #635bff3a;
+      letter-spacing:.04em;
+      transition:.15s;
+    }
+    .contact-form button:hover {
+      background: linear-gradient(100deg, var(--brand-pink), var(--accent));
+      filter:brightness(1.11);
+    }
+    .contact-row .fa {color: var(--brand-pink);}
+    .contact-row {margin-bottom: .6em;font-size:1.09em;}
+    /* ==== Footer ==== */
+    .footer {
+      text-align:center;
+      padding:1.5em .2em;
+      color:#fff9;
+      font-size:1em;
+      background:linear-gradient(110deg,#181622 90%,#ff44bb11 125%);
+      border-top-left-radius:22px;border-top-right-radius:22px;
+      margin-top:2.2rem;letter-spacing:0.03em;
+    }
+    /* ==== Responsive ==== */
+    @media (max-width:600px) {
+      .hero {padding:2.2rem 1rem 1.3rem 1rem;}
+      .section,.card{padding:1.22rem .5rem;}
+      .footer{font-size:.94em;}
+      .hero-logo{width:48px;height:48px;}
+      .owner-img{width:33px;height:33px;}
+      .hero-title{font-size:1.19rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <img src="https://dummyimage.com/140x140/635bff/ffffff&text=Logo" alt="Incrafy Brand Logo" class="hero-logo">
+    <div class="hero-title">Incrafy</div>
+    <div class="hero-owner-row">
+      <img src="https://randomuser.me/api/portraits/men/31.jpg" class="owner-img" alt="Owner Headshot">
+      <div class="owner-name">Rajesh Sharma</div>
+    </div>
+    <span class="hero-tagline">From Street To Screens 🌏</span>
+    <div class="hero-socials">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="section-title"><i class="fa fa-star"></i> Our Services</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fa-solid fa-video service-ico"></i>
+        <div class="service-title">YouTube Video Editing</div>
+        <div class="service-desc">Up-to-date editing styles, quick cuts, captions & branding for creators</div>
+      </div>
+      <div class="service-card">
+        <i class="fa-brands fa-instagram service-ico"></i>
+        <div class="service-title">Shorts & Reels Editing</div>
+        <div class="service-desc">Trendy, viral edits for Reels/TikTok/Facebook with fast turnaround</div>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-paint-brush service-ico"></i>
+        <div class="service-title">Graphic Design</div>
+        <div class="service-desc">Logos, banners, intro animations for brands big & small</div>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-bullhorn service-ico"></i>
+        <div class="service-title">Digital Marketing</div>
+        <div class="service-desc">Grow your online presence and engagement with targeted strategy</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT/PORTFOLIO -->
+  <section class="section">
+    <div class="section-title"><i class="fa-solid fa-cubes"></i> Showcase</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-title">Urban Pulse Vlogs</div>
+        <div class="project-info">Client: Priya Shekhawat</div>
+        <div class="project-desc">Lifestyle YouTube series edit with urban-themed motion graphics.</div>
+        <div class="project-date">Apr 2025</div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Swift Shorts Campaign</div>
+        <div class="project-info">Client: Viralgram</div>
+        <div class="project-desc">Created over 50+ snappy Instagram reels for India's top brand push.</div>
+        <div class="project-date">Feb 2025</div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Logo & Banner Pack</div>
+        <div class="project-info">Client: SoundMint Recordings</div>
+        <div class="project-desc">Minimal, music-first branding with animated visual identity for digital rollout.</div>
+        <div class="project-date">Jan 2025</div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Growth Orbit Launch</div>
+        <div class="project-info">Client: Orbit SaaS</div>
+        <div class="project-desc">Digital launch campaign boosting engagement via microtargets.</div>
+        <div class="project-date">May 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="testimonials">
+    <div class="section-title"><i class="fa-regular fa-comments"></i> Client Reviews</div>
+    <div class="testimonials-list">
+      <div class="testimonial">“धमाकेदार editing – मेरी वीडियो instantly pop करने लगी!”<div class="testimonial-client">— Priya Shekhawat</div></div>
+      <div class="testimonial">“Very professional and always creative. Best team for branding.”<div class="testimonial-client">— Orbit SaaS Marketing</div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT & ADDRESS -->
+  <section class="section" id="contact">
+    <div class="section-title"><i class="fa-solid fa-envelope"></i> Get in Touch</div>
+    <div class="contact-row"><i class="fa fa-location-dot"></i> Nohar, Hanumangarh – 335505</div>
+    <div class="contact-row"><i class="fa fa-envelope"></i> incrafy@gmail.com</div>
+    <div class="contact-row"><i class="fa fa-phone"></i> +91 98188 12344</div>
+    <form class="contact-form" autocomplete="off" onsubmit="event.preventDefault();alert('Thanks for reaching out!');">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit"><i class="fa fa-paper-plane"></i> Send</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 Incrafy. Designed for creators.<br>From Street To Screens. 🌏
+  </footer>
+  
+  <!-- SIMPLE REVEAL ANIMATION ON SCROLL-->
+  <script>
+    // Simple fade-in on scroll for all .section, .hero
+    const revealEls = document.querySelectorAll('.hero, .section');
+    const revealOpt = {threshold: .05};
+    const onEntry = (entries, obs) => {
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateY(0)";
+          obs.unobserve(entry.target);
+        }
+      });
+    };
+    const obs = new IntersectionObserver(onEntry, revealOpt);
+    revealEls.forEach(el=>{
+      el.style.opacity = 0;
+      el.style.transform = "translateY(40px)";
+      obs.observe(el);
+    });
+  </script>
+</body>
+</html>
