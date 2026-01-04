@@ -3,365 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karndeep Baror | Cyber Investigator & Ethical Hacker</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <title>Karndeep Baror | Owner - Cryptonic Area</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --neon-green: #00f2ff; /* Cyber Blue/Cyan */
-            --dark-bg: #050505;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --accent-glow: rgba(0, 242, 255, 0.5);
+            --primary: #00ff9d; /* Electric Green */
+            --secondary: #0088ff; /* Deep Blue */
+            --bg-black: #020202;
+            --surface: #0a0a0a;
+            --text: #e0e0e0;
+            --glow: rgba(0, 255, 157, 0.3);
         }
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0; padding: 0; box-sizing: border-box;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--dark-bg);
-            color: #fff;
-            font-family: 'Roboto Mono', monospace;
+            background-color: var(--bg-black);
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
             overflow-x: hidden;
         }
 
-        /* Scanline Effect */
-        body::before {
-            content: " ";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 4px, 3px 100%;
-            z-index: 1000;
-            pointer-events: none;
+        /* --- Global Animations --- */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 5px var(--primary); }
+            50% { box-shadow: 0 0 20px var(--primary); }
+            100% { box-shadow: 0 0 5px var(--primary); }
         }
 
-        /* Header & Nav */
-        header {
-            position: fixed;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            border-bottom: 1px solid var(--neon-green);
+        /* --- Navigation --- */
+        nav {
+            position: fixed; width: 100%; top: 0; z-index: 9999;
+            background: rgba(2, 2, 2, 0.95);
+            padding: 20px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #1a1a1a;
         }
 
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            color: var(--neon-green);
-            text-shadow: 0 0 10px var(--neon-green);
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .nav-links a {
+            color: var(--text); text-decoration: none; margin-left: 30px;
+            font-weight: 500; font-size: 0.9rem; letter-spacing: 1px;
             transition: 0.3s;
         }
 
-        nav a:hover { color: var(--neon-green); }
+        .nav-links a:hover { color: var(--primary); }
 
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
             height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle at center, #111 0%, #050505 100%);
-            text-align: center;
+            background: radial-gradient(circle at 50% 50%, #0a1510 0%, #020202 100%);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 20px;
+        }
+
+        .owner-badge {
+            background: rgba(0, 255, 157, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px; border-radius: 50px;
+            font-size: 0.8rem; letter-spacing: 2px;
+            margin-bottom: 25px;
+            animation: pulse 2s infinite;
         }
 
         .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
-            letter-spacing: 10px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            color: var(--neon-green);
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        /* Sections Styling */
-        section { padding: 100px 10%; }
-
-        h2.section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-align: center;
-            color: var(--neon-green);
-            text-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        /* About & Stats */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .stat-box {
-            background: var(--glass-bg);
-            padding: 30px;
-            border: 1px solid #222;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        .stat-box h3 { color: var(--neon-green); font-size: 2rem; }
-
-        /* Skills Progress */
-        .skill-bar {
-            margin-bottom: 25px;
-        }
-
-        .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; }
-
-        .progress-bg {
-            width: 100%;
-            height: 8px;
-            background: #222;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--neon-green);
-            box-shadow: 0 0 10px var(--neon-green);
-            width: 0%;
-            transition: 2s width ease-in-out;
-        }
-
-        /* Project Cards */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: var(--glass-bg);
-            border: 1px solid #333;
-            padding: 30px;
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            border-color: var(--neon-green);
-            transform: translateY(-10px);
-        }
-
-        .project-card i {
-            font-size: 3rem;
-            color: var(--neon-green);
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
             margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Hire Me / Contact Form */
-        .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--glass-bg);
-            padding: 50px;
-            border-radius: 20px;
-            border: 1px solid #222;
+        /* --- Cryptonic Area Community Section --- */
+        .community-bar {
+            background: var(--surface);
+            border: 1px solid #1a1a1a;
+            padding: 40px; border-radius: 20px;
+            margin: -80px 10% 50px 10%;
+            display: flex; align-items: center; gap: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .form-group { margin-bottom: 20px; }
-
-        input, textarea {
-            width: 100%;
-            padding: 15px;
-            background: #111;
-            border: 1px solid #333;
-            color: #fff;
-            border-radius: 5px;
-            outline: none;
+        .comm-logo {
+            width: 100px; height: 100px;
+            border-radius: 15px; border: 2px solid var(--secondary);
+            /* PASTE LOGO PATH BELOW */
+            background: url('./assets/community-logo.png') center/cover; 
+            background-color: #111;
         }
 
-        input:focus { border-color: var(--neon-green); }
+        .comm-info h2 { font-family: 'Syncopate', sans-serif; color: var(--secondary); font-size: 1.5rem; }
 
-        .btn-hire {
-            width: 100%;
-            padding: 15px;
-            background: transparent;
-            color: var(--neon-green);
-            border: 2px solid var(--neon-green);
-            font-family: 'Orbitron', sans-serif;
-            cursor: pointer;
+        .btn-join {
+            background: var(--secondary); color: white;
+            padding: 12px 25px; border-radius: 8px; text-decoration: none;
+            font-weight: bold; transition: 0.3s; margin-left: auto;
+        }
+
+        .btn-join:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--secondary); }
+
+        /* --- Projects Grid --- */
+        .project-section { padding: 100px 8%; }
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; margin-top: 50px;
+        }
+
+        .card {
+            background: #0f0f0f; border: 1px solid #1a1a1a;
+            padding: 40px; border-radius: 20px; transition: 0.4s;
+        }
+
+        .card:hover {
+            border-color: var(--primary); transform: translateY(-10px);
+            background: #151515;
+        }
+
+        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+
+        .view-btn {
+            display: inline-block; margin-top: 20px; color: var(--primary);
+            text-decoration: none; font-weight: bold; border-bottom: 1px solid var(--primary);
+        }
+
+        /* --- Hire Me Section --- */
+        .hire-section {
+            background: linear-gradient(45deg, #050505, #0a1510);
+            padding: 80px 10%; border-radius: 30px; margin: 50px 8%;
+            text-align: center; border: 1px solid #1a1a1a;
+        }
+
+        .hire-btn {
+            display: inline-block; padding: 20px 50px;
+            background: var(--primary); color: #000;
+            text-decoration: none; font-family: 'Syncopate', sans-serif;
+            font-weight: bold; border-radius: 5px; margin-top: 30px;
             transition: 0.3s;
-            text-transform: uppercase;
-            font-weight: bold;
         }
 
-        .btn-hire:hover {
-            background: var(--neon-green);
-            color: #000;
-            box-shadow: 0 0 30px var(--neon-green);
+        .hire-btn:hover { box-shadow: 0 0 30px var(--primary); transform: translateY(-3px); }
+
+        /* --- Footer & Socials --- */
+        footer {
+            padding: 60px 8%; border-top: 1px solid #1a1a1a;
+            display: flex; flex-direction: column; align-items: center;
         }
 
-        /* Social Icons */
-        .social-links {
-            text-align: center;
-            margin-top: 50px;
-        }
+        .social-group { margin: 20px 0; display: flex; gap: 25px; }
+        .social-group a { color: var(--text); font-size: 1.5rem; transition: 0.3s; }
+        .social-group a:hover { color: var(--primary); transform: translateY(-5px); }
 
-        .social-links a {
-            font-size: 2rem;
-            color: #fff;
-            margin: 0 15px;
-            transition: 0.3s;
-        }
+        .footer-logo { font-family: 'Syncopate', sans-serif; color: #444; margin-bottom: 20px; }
 
-        .social-links a:hover { color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .about-content { grid-template-columns: 1fr; }
-            header { padding: 20px; }
-            nav { display: none; }
+            .community-bar { flex-direction: column; text-align: center; margin: 20px 5%; }
+            .btn-join { margin-left: 0; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">KB_SHIELD</div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Work</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <nav>
+        <div style="font-family: 'Syncopate'; font-weight: bold; color: var(--primary);">KB_SEC</div>
+        <div class="nav-links">
+            <a href="#projects">PROJECTS</a>
+            <a href="#community">COMMUNITY</a>
+            <a href="#hire">CONTACT</a>
+        </div>
+    </nav>
 
     <section class="hero">
-        <p>[ ACCESSING SECURE PORTFOLIO ]</p>
-        <h1 id="typing-text">KARNDEEP BAROR</h1>
-        <p>Cyber Crime Investigator | Professional Ethical Hacker | OSINT Expert</p>
-        <a href="#contact" class="btn-hire" style="width: auto; padding: 15px 40px;">Initialize Contact</a>
+        <div class="owner-badge">COMMUNITY OWNER & ADMIN</div>
+        <h1>KARNDEEP BAROR</h1>
+        <p style="letter-spacing: 3px; color: #888;">CYBER INVESTIGATOR | ETHICAL HACKER | CRYPTONIC AREA FOUNDER</p>
     </section>
 
-    <section id="about">
-        <h2 class="section-title">Identity & Mission</h2>
-        <div class="about-content">
-            <div>
-                <p style="font-size: 1.1rem; line-height: 1.8;">
-                    Main **Karndeep Baror** hun, ek committed Cyber Security Learner aur Professional Investigator. Mera kaam digital threats ko neutralize karna aur complex cyber crimes ki teh tak pahunchna hai. Main systems ko secure karne aur vulnerabilities ko patch karne mein expert hun.
-                </p>
-                <br>
-                <p><strong>Education:</strong> Bachelor's in Cyber Security & Digital Forensics (Specialization)</p>
+    <section id="community">
+        <div class="community-bar">
+            <div class="comm-logo"></div> 
+            <div class="comm-info">
+                <h2>CRYPTONIC AREA</h2>
+                <p>Leading Community for Ethical Hackers & Security Researchers</p>
+                <div class="social-group" style="margin: 10px 0;">
+                    <a href="https://t.me/your_community" target="_blank" title="Telegram Community"><i class="fab fa-telegram"></i></a>
+                    <a href="https://discord.gg/your_link" target="_blank" title="Discord Server"><i class="fab fa-discord"></i></a>
+                    <a href="https://instagram.com/cryptonic_area" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="stats-grid">
-                <div class="stat-box"><h3>50+</h3><p>Threats Fixed</p></div>
-                <div class="stat-box"><h3>15+</h3><p>Investigations</p></div>
-                <div class="stat-box"><h3>20+</h3><p>Projects</p></div>
-                <div class="stat-box"><h3>100%</h3><p>Secure Delivery</p></div>
-            </div>
+            <a href="https://link-to-your-community.com" target="_blank" class="btn-join">JOIN COMMUNITY <i class="fas fa-external-link-alt"></i></a>
         </div>
     </section>
 
-    <section id="skills" style="background: #080808;">
-        <h2 class="section-title">Technical Expertise</h2>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <div class="skill-bar">
-                <div class="skill-info"><span>Ethical Hacking</span><span>95%</span></div>
-                <div class="progress-bg"><div class="progress-fill" style="width: 95%;"></div></div>
+    <section class="project-section" id="projects">
+        <h2 style="font-family: 'Syncopate'; margin-bottom: 40px;">CLASSIFIED_PROJECTS</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-user-shield"></i>
+                <h3>OSINT Tracker</h3>
+                <p>Automated tool for gathering digital footprints across multiple platforms.</p>
+                <a href="https://github.com/Karndeep/project1" target="_blank" class="view-btn">VIEW ON GITHUB</a>
             </div>
-            <div class="skill-bar">
-                <div class="skill-info"><span>Cyber Investigation</span><span>90%</span></div>
-                <div class="progress-bg"><div class="progress-fill" style="width: 90%;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-info"><span>Network Security</span><span>85%</span></div>
-                <div class="progress-bg"><div class="progress-fill" style="width: 85%;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-info"><span>OSINT</span><span>80%</span></div>
-                <div class="progress-bg"><div class="progress-fill" style="width: 80%;"></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2 class="section-title">Classified Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <i class="fas fa-shield-virus"></i>
-                <h3>Malware Analysis</h3>
-                <p>Advanced analysis of ransomware samples in a controlled sandbox environment to identify C2 servers.</p>
-            </div>
-            <div class="project-card">
-                <i class="fas fa-fingerprint"></i>
-                <h3>Digital Forensics Tool</h3>
-                <p>Created a customized toolkit for recovering deleted artifacts from encrypted drives.</p>
-            </div>
-            <div class="project-card">
+            <div class="card">
                 <i class="fas fa-network-wired"></i>
-                <h3>Intrusion Detection</h3>
-                <p>Setup an AI-based IDS system to monitor real-time traffic for SQL injection and XSS attacks.</p>
+                <h3>Vulnerability Scanner</h3>
+                <p>Custom Python scanner for identifying SQLi and XSS in web applications.</p>
+                <a href="https://github.com/Karndeep/project2" target="_blank" class="view-btn">VIEW ON GITHUB</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-biohazard"></i>
+                <h3>Phishing Analyzer</h3>
+                <p>A tool to analyze email headers and malicious links in real-time.</p>
+                <a href="https://github.com/Karndeep/project3" target="_blank" class="view-btn">VIEW ON GITHUB</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-code-branch"></i>
+                <h3>Secure Firewall Script</h3>
+                <p>Automated Linux IPTables configuration for hardening servers.</p>
+                <a href="https://github.com/Karndeep/project4" target="_blank" class="view-btn">VIEW ON GITHUB</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-search-plus"></i>
+                <h3>Digital Forensics Kit</h3>
+                <p>Scripts for memory carving and registry analysis during investigations.</p>
+                <a href="https://github.com/Karndeep/project5" target="_blank" class="view-btn">VIEW ON GITHUB</a>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <h2 class="section-title">Secure Connection</h2>
-        <div class="contact-container">
-            <form>
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name/Organization">
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Secure Email Address">
-                </div>
-                <div class="form-group">
-                    <textarea rows="5" placeholder="Define the Scope of Project / Investigation"></textarea>
-                </div>
-                <button type="submit" class="btn-hire">Execute Request</button>
-            </form>
-            
-            <div class="social-links">
-                <a href="https://linkedin.com/in/karndeep" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/karndeep" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://instagram.com/karndeep" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/karndeep" target="_blank"><i class="fab fa-x-twitter"></i></a>
-            </div>
-        </div>
+    <section class="hire-section" id="hire">
+        <h2 style="font-family: 'Syncopate';">READY TO SECURE YOUR INFRASTRUCTURE?</h2>
+        <p style="margin-top: 20px; color: #aaa;">Professional Cybersecurity Audits, Crime Investigations, and Security Training.</p>
+        <a href="mailto:your-email@gmail.com" class="hire-btn">HIRE KARNDEEP BAROR</a>
     </section>
 
-    <footer style="text-align: center; padding: 30px; border-top: 1px solid #222; font-size: 0.8rem; color: #555;">
-        &copy; 2026 KARNDEEP BAROR | ENCRYPTED PORTFOLIO | ALL RIGHTS RESERVED
+    <footer>
+        <div class="footer-logo">KARNDEEP BAROR</div>
+        <p>Expertise in Cyber Defense & Investigation</p>
+        <div class="social-group">
+            <a href="https://linkedin.com/in/yourname" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/yourname" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://instagram.com/yourname" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/yourname" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        </div>
+        <p style="color: #333; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 KARNDEEP BAROR | OWNER OF CRYPTONIC AREA</p>
     </footer>
 
 </body>
-                        </html>
-                        
+</html>
