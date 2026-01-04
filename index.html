@@ -1,235 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karndeep Baror | Cyber Security Investigator & Ethical Hacker</title>
-    <meta name="description" content="Official portfolio of Karndeep Baror, Cyber Crime Investigator, Ethical Hacker, and Owner of Cryptonic Area. Expert in Digital Forensics and Security Audits.">
-    <meta name="keywords" content="Karndeep Baror, Cyber Security Expert, Ethical Hacker India, Cyber Crime Investigator, Cryptonic Area Owner, Digital Forensics">
+    
+    <title>Karndeep Baror | Cyber Crime Investigator & Ethical Hacker</title>
+    <meta name="description" content="Karndeep Baror - Professional Cyber Security Expert, Investigator, and Founder of Cryptonic Area. Specializing in Digital Forensics and Enterprise Security.">
+    <meta name="keywords" content="Karndeep Baror, Cryptonic Area, Cyber Investigator, Ethical Hacker, Indian Cyber Security Expert, Forensics">
     <meta name="author" content="Karndeep Baror">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Karndeep Baror | Cyber Security Authority">
+    <meta property="og:description" content="Official Portfolio of Karndeep Baror. Investigation, Security Audits, and Community Leadership.">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Lexend+Deca:wght@300;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-blue: #0a2540; /* Professional Corporate Blue */
-            --accent-blue: #00d4ff;
-            --light-bg: #f6f9fc;
-            --text-dark: #1a1f36;
-            --white: #ffffff;
-            --card-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+            --bg-color: #0f172a; /* Midnight Blue */
+            --accent-color: #38bdf8; /* Sky Cyan */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
         }
 
         * {
             margin: 0; padding: 0; box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
-        body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
 
-        /* --- NAVIGATION --- */
+        /* Smooth reveal animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Navigation */
         nav {
-            background: var(--white); padding: 20px 10%;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky; top: 0; z-index: 1000;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            padding: 25px 8%; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .logo { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--primary-blue); font-size: 1.5rem; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); margin-left: 30px; font-weight: 500; font-size: 0.9rem; }
-        .nav-links a:hover { color: var(--accent-blue); }
+        .logo { font-family: 'Lexend Deca'; font-weight: 800; font-size: 1.6rem; letter-spacing: -1px; }
+        .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* --- HERO SECTION --- */
+        .nav-links a {
+            color: var(--text-dim); text-decoration: none; margin-left: 35px;
+            font-size: 0.9rem; font-weight: 600; transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* Hero Section */
         .hero {
-            padding: 100px 10%; display: flex; align-items: center;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #05192d 100%);
-            color: var(--white); min-height: 80vh;
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 0 10%;
+            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent);
         }
 
-        .hero-text { flex: 1; }
-        .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
-        .hero-text span { color: var(--accent-blue); }
-        .hero-text p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
-
-        /* --- COMMUNITY BRANDING --- */
-        .community-section {
-            padding: 80px 10%; margin-top: -50px;
+        .hero-content h1 {
+            font-family: 'Lexend Deca'; font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 1; margin-bottom: 25px; font-weight: 800;
         }
 
-        .community-card {
-            background: var(--white); border-radius: 15px; padding: 40px;
-            display: flex; align-items: center; gap: 40px;
-            box-shadow: var(--card-shadow); border-left: 6px solid var(--accent-blue);
+        .hero-subtitle {
+            font-size: 1.2rem; color: var(--text-dim); max-width: 700px; margin: 0 auto 40px;
         }
 
-        .comm-logo {
-            width: 120px; height: 120px; border-radius: 12px;
-            background: url('./assets/community-logo.png') center/cover, #eee; /* Path to logo */
+        .btn-main {
+            padding: 18px 45px; border-radius: 50px; background: var(--gradient);
+            color: white; text-decoration: none; font-weight: 700;
+            display: inline-block; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+            transition: 0.4s;
+        }
+        .btn-main:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.5); }
+
+        /* Cryptonic Area Section */
+        .community-hub {
+            padding: 100px 8%; background: rgba(255,255,255,0.02);
+            border-radius: 40px; margin: 0 5% 100px; border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .comm-content h2 { color: var(--primary-blue); margin-bottom: 10px; }
-
-        /* --- SECTION STYLING --- */
-        section { padding: 80px 10%; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--primary-blue); }
-        .section-title div { width: 60px; height: 4px; background: var(--accent-blue); margin: 10px auto; }
-
-        /* --- PROJECTS GRID --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card {
-            background: var(--white); padding: 35px; border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(50,50,93,.11); transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: var(--card-shadow); }
-        .card i { font-size: 2rem; color: var(--accent-blue); margin-bottom: 20px; }
-        .github-link { display: inline-block; margin-top: 20px; color: var(--primary-blue); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--accent-blue); }
-
-        /* --- SKILLS --- */
-        .skills-wrap { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
-        .skill-tag { background: #eef2f7; padding: 10px 25px; border-radius: 50px; font-weight: 600; color: var(--primary-blue); }
-
-        /* --- CALL TO ACTION --- */
-        .cta-box {
-            background: var(--primary-blue); color: var(--white);
-            padding: 60px; border-radius: 20px; text-align: center;
+        .hub-flex { display: flex; align-items: center; gap: 60px; }
+        .comm-img { 
+            width: 250px; height: 250px; border-radius: 30px; 
+            background: url('./assets/cryptonic-logo.png') center/cover, #1e293b;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
-        .btn-hire {
-            background: var(--accent-blue); color: var(--primary-blue);
-            padding: 18px 45px; border-radius: 8px; text-decoration: none;
-            font-weight: 800; display: inline-block; margin-top: 30px;
-            transition: 0.3s; text-transform: uppercase;
+        .hub-text h2 { font-size: 2.5rem; margin-bottom: 20px; font-family: 'Lexend Deca'; }
+        .hub-text p { color: var(--text-dim); margin-bottom: 30px; font-size: 1.1rem; }
+
+        /* Projects Section */
+        .section-tag { color: var(--accent-color); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 15px; }
+        
+        .projects-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px; padding: 100px 8%;
         }
-        .btn-hire:hover { transform: scale(1.05); background: var(--white); }
 
-        footer { padding: 40px 10%; text-align: center; background: #fff; border-top: 1px solid #ddd; }
-        .socials { margin-bottom: 20px; }
-        .socials a { font-size: 1.5rem; margin: 0 15px; color: var(--primary-blue); transition: 0.3s; }
-        .socials a:hover { color: var(--accent-blue); }
+        .proj-card {
+            background: var(--glass-bg); padding: 45px; border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.4s;
+        }
+        .proj-card:hover {
+            background: rgba(255,255,255,0.06); border-color: var(--accent-color);
+            transform: translateY(-10px);
+        }
 
-        @media (max-width: 768px) {
-            .hero { text-align: center; padding: 60px 5%; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .community-card { flex-direction: column; text-align: center; }
+        .proj-card i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 25px; }
+        .proj-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .proj-card p { color: var(--text-dim); margin-bottom: 25px; font-size: 0.95rem; }
+
+        .btn-repo {
+            color: var(--text-main); text-decoration: none; font-weight: 700;
+            display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
+        }
+
+        /* Contact & Hire Section */
+        .contact-cta {
+            text-align: center; padding: 120px 10%;
+            background: linear-gradient(to bottom, transparent, rgba(56, 189, 248, 0.05));
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 8%; border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .social-icons a {
+            color: var(--text-dim); font-size: 1.5rem; margin-left: 25px; transition: 0.3s;
+        }
+        .social-icons a:hover { color: var(--accent-color); transform: translateY(-5px); }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hub-flex { flex-direction: column; text-align: center; }
+            nav { padding: 20px 5%; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">KARNDEEP BAROR</div>
+        <div class="logo">KARNDEEP <span>BAROR</span></div>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#community">Community</a>
-            <a href="#projects">Portfolio</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">EXPERTIS</a>
+            <a href="#community">COMMUNITY</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#contact">HIRE ME</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-text">
-            <h1>Professional <span>Cyber Security</span><br>Expert & Investigator</h1>
-            <p>Providing high-end security solutions, digital forensics, and professional ethical hacking services. Helping businesses stay secure in a digital world.</p>
-            <a href="#contact" class="btn-hire">Consult With Me</a>
+    <section class="hero">
+        <div class="hero-content reveal">
+            <span class="section-tag">Cyber Security Professional</span>
+            <h1>Investigator &<br>Ethical Hacker</h1>
+            <p class="hero-subtitle">Main Karndeep Baror hun, jo systems ko secure karne aur cyber crimes ki teh tak pahunchne mein expert hai. Cryptonic Area ka founder hone ke naate, mera lakshya digital duniya ko safe banana hai.</p>
+            <a href="#contact" class="btn-main">Karya Shuru Karein <i class="fas fa-arrow-right"></i></a>
         </div>
-    </header>
+    </section>
 
-    <div class="community-section" id="community">
-        <div class="community-card">
-            <div class="comm-logo" role="img" aria-label="Cryptonic Area Logo"></div>
-            <div class="comm-content">
-                <h2>Owner & Admin at <span>Cryptonic Area</span></h2>
-                <p>Leading one of the fastest-growing communities for Cyber Security learners and professionals. We provide mentorship, tools, and a platform for ethical hackers globally.</p>
-                <div style="margin-top: 15px;">
-                    <a href="https://your-community-link.com" target="_blank" class="github-link">Join Cryptonic Area Community</a>
+    <section id="community" class="reveal">
+        <div class="community-hub">
+            <div class="hub-flex">
+                <div class="comm-img"></div>
+                <div class="hub-text">
+                    <span class="section-tag">Management & Authority</span>
+                    <h2>Cryptonic Area Hub</h2>
+                    <p>Main is community ka **Admin aur Owner** hun. Hum cyber security learners aur professional hackers ko ek plateform dete hain jahan hum real-world threats aur investigations par baat karte hain.</p>
+                    <div style="display: flex; gap: 20px;">
+                        <a href="https://t.me/yourlink" target="_blank" class="btn-main" style="padding: 12px 30px; font-size: 0.9rem;">Join Community</a>
+                        <div class="social-icons" style="display: flex; align-items: center;">
+                            <a href="#"><i class="fab fa-discord"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <section id="about">
-        <div class="section-title">
-            <h2>Expertise & Skills</h2>
-            <div></div>
-        </div>
-        <div class="skills-wrap">
-            <span class="skill-tag">Cyber Crime Investigation</span>
-            <span class="skill-tag">Vulnerability Assessment</span>
-            <span class="skill-tag">Penetration Testing</span>
-            <span class="skill-tag">Digital Forensics</span>
-            <span class="skill-tag">OSINT Expert</span>
-            <span class="skill-tag">Network Security</span>
-            <span class="skill-tag">Python for Security</span>
-        </div>
     </section>
 
-    <section id="projects" style="background-color: #f0f4f8;">
-        <div class="section-title">
-            <h2>Featured Projects</h2>
-            <div></div>
+    <section id="projects">
+        <div style="text-align: center;" class="reveal">
+            <span class="section-tag">Portfolio Repositories</span>
+            <h2 style="font-size: 2.5rem; font-family: 'Lexend Deca';">Featured Projects</h2>
         </div>
-        <div class="grid">
-            <article class="card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>SecureGuard OSINT</h3>
-                <p>A professional grade reconnaissance tool for gathering public intelligence for investigations.</p>
-                <a href="https://github.com/Karndeep/OSINT-Tool" class="github-link">View Repository</a>
-            </article>
-            <article class="card">
+
+        <div class="projects-grid">
+            <div class="proj-card reveal">
+                <i class="fas fa-fingerprint"></i>
+                <h3>Advanced OSINT System</h3>
+                <p>Digital investigation ke liye ek powerful framework jo social footprints trace karta hai.</p>
+                <a href="https://github.com/Karndeep/OSINT" target="_blank" class="btn-repo">View Source <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="proj-card reveal">
+                <i class="fas fa-user-shield"></i>
+                <h3>Pentest Automator</h3>
+                <p>Web applications ki vulnerabilities ko scan karne ka professional script.</p>
+                <a href="https://github.com/Karndeep/Pentest" target="_blank" class="btn-repo">View Source <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="proj-card reveal">
                 <i class="fas fa-network-wired"></i>
-                <h3>Intrusion Detection System</h3>
-                <p>A real-time network monitoring script designed to identify and block unauthorized access attempts.</p>
-                <a href="https://github.com/Karndeep/IDS" class="github-link">View Repository</a>
-            </article>
-            <article class="card">
-                <i class="fas fa-search"></i>
-                <h3>Forensic Artifact Finder</h3>
-                <p>Automated toolkit to extract browser history and system logs for criminal investigations.</p>
-                <a href="https://github.com/Karndeep/Forensics" class="github-link">View Repository</a>
-            </article>
-            <article class="card">
-                <i class="fas fa-code"></i>
-                <h3>WAF Configuration Suite</h3>
-                <p>Enterprise-level Web Application Firewall rules for preventing SQLi and XSS attacks.</p>
-                <a href="https://github.com/Karndeep/WAF" class="github-link">View Repository</a>
-            </article>
-            <article class="card">
-                <i class="fas fa-biohazard"></i>
-                <h3>Malware Analysis Report</h3>
-                <p>A comprehensive research project on modern ransomware behavior and decryption methods.</p>
-                <a href="https://github.com/Karndeep/Malware-Lab" class="github-link">View Repository</a>
-            </article>
+                <h3>Packet Analyzer Pro</h3>
+                <p>Real-time network traffic analysis aur threat detection system.</p>
+                <a href="https://github.com/Karndeep/Analyzer" target="_blank" class="btn-repo">View Source <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="proj-card reveal">
+                <i class="fas fa-lock"></i>
+                <h3>Zero-Trust Firewall</h3>
+                <p>Server security ke liye ek advanced zero-trust architecture configuration tool.</p>
+                <a href="https://github.com/Karndeep/Firewall" target="_blank" class="btn-repo">View Source <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="proj-card reveal">
+                <i class="fas fa-search-plus"></i>
+                <h3>Forensic Data Carver</h3>
+                <p>Deleted files aur digital evidence recover karne ka specialized tool.</p>
+                <a href="https://github.com/Karndeep/Forensics" target="_blank" class="btn-repo">View Source <i class="fas fa-external-link-alt"></i></a>
+            </div>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="cta-box">
-            <h2>Ready to Secure Your Digital Presence?</h2>
-            <p>I am available for professional investigations, audits, and speaker sessions.</p>
-            <a href="mailto:karndeep.baror@example.com" class="btn-hire">Contact Me Today</a>
-        </div>
+    <section id="contact" class="contact-cta reveal">
+        <h2 style="font-family: 'Lexend Deca'; font-size: 3rem; margin-bottom: 20px;">Chaliye Saath Kaam Karte Hain</h2>
+        <p style="color: var(--text-dim); margin-bottom: 40px;">Investigation, Consulting ya Community partnerships ke liye mujhe email karein.</p>
+        <a href="mailto:karndeep@example.com" class="btn-main" style="padding: 20px 60px; font-size: 1.1rem;">Email Bhejein (Encrypted)</a>
     </section>
 
     <footer>
-        <div class="socials">
-            <a href="https://linkedin.com/in/karndeep" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <div class="logo">KARNDEEP <span>BAROR</span></div>
+        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 OWNER OF CRYPTONIC AREA. ALL RIGHTS RESERVED.</p>
+        <div class="social-icons">
+            <a href="https://linkedin.com/in/karndeep" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://github.com/karndeep" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://twitter.com/karndeep" target="_blank"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://instagram.com/karndeep" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-        <p>&copy; 2026 Karndeep Baror. All Rights Reserved. | Owner of Cryptonic Area</p>
     </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // To trigger on load
+        reveal();
+    </script>
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Karndeep Baror",
-      "url": "http://yourwebsite.com",
       "jobTitle": "Cyber Security Investigator",
-      "knowsAbout": "Ethical Hacking, Cyber Security, Digital Forensics",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Cryptonic Area"
+      },
+      "url": "https://yourdomain.com",
       "sameAs": [
         "https://linkedin.com/in/karndeep",
         "https://github.com/karndeep"
@@ -237,4 +282,5 @@
     }
     </script>
 </body>
-</html>
+    </html>
+    
