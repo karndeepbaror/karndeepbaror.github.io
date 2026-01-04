@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karndeep Baror | Cyber Security Expert</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #00ff41; /* Hacker Green */
+            --bg-dark: #0a0a0a;
+            --text-light: #e0e0e0;
+            --card-bg: #161616;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(10, 10, 10, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-light);
+            transition: 0.3s;
+        }
+        nav ul li a:hover { color: var(--primary-color); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .glitch {
+            color: var(--primary-color);
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 red, -2px 0 blue; }
+            50% { text-shadow: -2px 0 red, 2px 0 blue; }
+            100% { text-shadow: 2px 0 red, -2px 0 blue; }
+        }
+
+        /* Sections */
+        section { padding: 100px 10%; }
+        h2 {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        /* Skills Grid */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: 0.4s;
+            border-radius: 5px;
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-10px);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Projects */
+        .project-card {
+            background: var(--card-bg);
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        /* Footer/Socials */
+        .socials {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .socials a {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            transition: 0.3s;
+        }
+
+        .socials a:hover { color: var(--primary-color); transform: scale(1.2); }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+
+    <nav>
+        <div class="logo">KARNDEEP_BAROR_</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <p style="letter-spacing: 5px;">SYSTEM ACCESS GRANTED</p>
+        <h1 class="glitch">Karndeep Baror</h1>
+        <p style="font-size: 1.2rem;">Cyber Crime Investigator | Ethical Hacker | Security Learner</p>
+        <a href="#contact" class="btn">HIRE THE EXPERT</a>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello, I am <strong>Karndeep Baror</strong>. I specialize in identifying vulnerabilities, investigating cyber crimes, and securing digital infrastructures. My mission is to build a safer cyberspace through ethical hacking and advanced investigation techniques.</p>
+        <p style="margin-top: 15px;"><strong>Education:</strong> Pursuing specialization in Cyber Security & Digital Forensics.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Arsenal</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <i class="fas fa-user-secret"></i>
+                <p>Ethical Hacking</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-search-dollar"></i>
+                <p>Digital Forensics</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-shield-alt"></i>
+                <p>Network Security</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <p>Python Scripting</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-terminal"></i>
+                <p>Linux Mastery</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Investigations & Projects</h2>
+        <div class="project-card">
+            <h3>Vulnerability Assessment Tool</h3>
+            <p>Developed a custom Python script to scan local networks for open ports and outdated services.</p>
+        </div>
+        <div class="project-card">
+            <h3>Cyber Crime Case Study</h3>
+            <p>Conducted a mock investigation on a phishing attack to trace origin IPs and secure data.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Connect With Me</h2>
+        <p>Yadi aapko kisi investigation ya security audit ki zaroorat hai, toh sampark karein:</p>
+        <div class="socials">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:karndeep@example.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <br>
+        <p>© 2024 Karndeep Baror | Secured Portfolio</p>
+    </section>
+
+</body>
+</html>
