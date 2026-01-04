@@ -63,21 +63,29 @@
         .hero h1 { font-family: 'Outfit'; font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 25px; color: #000; }
         .hero p { font-size: 1.3rem; color: var(--text-dim); max-width: 600px; margin-bottom: 40px; }
 
-        /* --- ORG PROFILE CARD --- */
+        /* --- ORG PROFILE CARD & BUTTON --- */
+        .org-container { max-width: 380px; }
         .org-card {
             background: var(--card-white); border: 1px solid var(--border);
             padding: 20px; border-radius: 20px; display: flex; align-items: center; gap: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.04); max-width: 380px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04); margin-bottom: 15px;
         }
         .org-logo { width: 55px; height: 55px; border-radius: 12px; object-fit: cover; }
         .org-info h4 { font-weight: 800; font-size: 1rem; display: flex; align-items: center; }
+        
+        .join-btn {
+            display: block; width: 100%; text-align: center; background: #f1f5f9; 
+            color: var(--accent); text-decoration: none; padding: 12px; 
+            border-radius: 12px; font-weight: 800; font-size: 0.85rem; 
+            border: 1px solid var(--border); transition: 0.3s;
+        }
+        .join-btn:hover { background: var(--accent); color: #fff; box-shadow: 0 5px 15px rgba(0, 82, 255, 0.2); }
 
         /* --- ABOUT SECTION --- */
         .content-section { padding: 80px 10%; background: #fff; border-top: 1px solid var(--border); }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
         .section-label { color: var(--accent); font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: block; }
         .section-title { font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 30px; line-height: 1.2; }
-        
         .rich-text p { margin-bottom: 20px; font-size: 1.05rem; color: var(--text-dim); }
 
         /* --- SERVICES GRID --- */
@@ -87,7 +95,7 @@
         .s-item:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
         .s-item i { font-size: 1.8rem; color: var(--accent); margin-bottom: 20px; }
 
-        /* --- GITHUB PROFILE SECTION --- */
+        /* --- GITHUB SECTION --- */
         .github-hero { 
             margin: 60px 10%; background: #0f172a; border-radius: 30px; padding: 60px; color: #fff;
             text-align: center; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
@@ -98,7 +106,6 @@
         }
         .gh-btn:hover { background: var(--accent); color: #fff; }
 
-        /* --- FOOTER --- */
         footer { padding: 60px 10%; border-top: 1px solid var(--border); background: #fff; }
         .footer-flex { display: flex; justify-content: space-between; align-items: flex-start; }
         .social-box a { color: var(--text-dark); font-size: 1.4rem; margin-left: 20px; transition: 0.3s; }
@@ -106,8 +113,7 @@
 
         @media (max-width: 992px) {
             .hero, .grid-2, .footer-flex { grid-template-columns: 1fr; text-align: center; flex-direction: column; align-items: center; }
-            .org-card { margin: 0 auto; }
-            .hero-content { order: 1; }
+            .org-container { margin: 0 auto; }
             .hero h1 { font-size: 3rem; }
         }
     </style>
@@ -127,12 +133,15 @@
             <h1>Karndeep Baror</h1>
             <p>Specialist in Cyber Crime Investigation, Digital Forensics, and Enterprise Threat Management. Founder & Lead Admin of Cryptonic Area.</p>
             
-            <div class="org-card">
-                <img src="assets/cryptonic-logo.png" alt="Cryptonic Area Logo" class="org-logo">
-                <div class="org-info">
-                    <h4>Cryptonic Area <span class="tick-org" title="Verified Organization"><i class="fas fa-check"></i></span></h4>
-                    <p style="font-size: 0.8rem; color: var(--text-dim);">Founder & Executive Director</p>
+            <div class="org-container">
+                <div class="org-card">
+                    <img src="assets/cryptonic-logo.png" alt="Cryptonic Area Logo" class="org-logo">
+                    <div class="org-info">
+                        <h4>Cryptonic Area <span class="tick-org"><i class="fas fa-check"></i></span></h4>
+                        <p style="font-size: 0.8rem; color: var(--text-dim);">Founder & Executive Director</p>
+                    </div>
                 </div>
+                <a href="#" target="_blank" class="join-btn">JOIN COMMUNITY <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
             </div>
         </div>
     </header>
@@ -143,13 +152,13 @@
                 <span class="section-label">Professional Profile</span>
                 <h2 class="section-title">A Leading Authority in Cyber Intelligence.</h2>
                 <p>Karndeep Baror is a distinguished Cyber Security Professional known for his strategic approach to digital defense and forensic investigation. With years of experience in the field, he has handled complex cases involving data breaches, financial cyber-fraud, and infrastructure vulnerabilities.</p>
-                <p>His expertise is not just limited to defense; he is a proactive researcher who develops automated security frameworks and forensic tools to stay ahead of modern cyber threats. His goal is to build a safer digital ecosystem for organizations and individuals alike.</p>
+                <p>His expertise is not just limited to defense; he is a proactive researcher who develops automated security frameworks and forensic tools to stay ahead of modern cyber threats.</p>
             </div>
             <div class="rich-text">
                 <span class="section-label">Organization Oversight</span>
                 <h2 class="section-title">The Vision Behind Cryptonic Area.</h2>
-                <p>As the **Founder and Owner of Cryptonic Area**, Karndeep Baror has built one of the most prominent and verified digital security communities globally. Cryptonic Area serves as a high-tech hub for ethical hackers, researchers, and security students.</p>
-                <p>Under his leadership, the organization provides cutting-edge intelligence, educational resources, and a platform for cybersecurity enthusiasts to collaborate on real-world threat neutralization and ethical research.</p>
+                <p>As the **Founder and Owner of Cryptonic Area**, Karndeep Baror has built one of the most prominent and verified digital security communities globally. Cryptonic Area serves as a high-tech hub for ethical hackers and researchers.</p>
+                <p>Under his leadership, the organization provides cutting-edge intelligence, educational resources, and a platform for cybersecurity enthusiasts to collaborate on real-world threat neutralization.</p>
             </div>
         </div>
     </section>
@@ -203,26 +212,8 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 60px; font-size: 0.8rem; color: #94a3b8; letter-spacing: 1px;">© 2026 OFFICIAL PORTAL | SECURED & VERIFIED | OWNER OF CRYPTONIC AREA</p>
+        <p style="text-align: center; margin-top: 60px; font-size: 0.8rem; color: #94a3b8; letter-spacing: 1px;">© 2026 OFFICIAL PORTAL | OWNER OF CRYPTONIC AREA</p>
     </footer>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Karndeep Baror",
-      "description": "Cyber Security Investigator and Founder of Cryptonic Area.",
-      "jobTitle": "Cyber Security Investigator",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Cryptonic Area"
-      },
-      "url": "https://yourdomain.com",
-      "sameAs": [
-        "https://linkedin.com/in/karndeep",
-        "https://github.com/karndeep"
-      ]
-    }
-    </script>
 </body>
 </html>
