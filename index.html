@@ -1,150 +1,167 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Karndeep Baror | Cyber Crime Investigator & Ethical Hacker</title>
-    <meta name="description" content="Karndeep Baror - Professional Cyber Security Expert, Investigator, and Founder of Cryptonic Area. Specializing in Digital Forensics and Enterprise Security.">
-    <meta name="keywords" content="Karndeep Baror, Cryptonic Area, Cyber Investigator, Ethical Hacker, Indian Cyber Security Expert, Forensics">
+    <title>Karndeep Baror | Cyber Security Investigator & Ethical Hacker</title>
+    <meta name="description" content="Official portfolio of Karndeep Baror, Expert Cyber Crime Investigator, Ethical Hacker, and Founder of Cryptonic Area. Specializing in Digital Forensics and Security Audits.">
+    <meta name="keywords" content="Karndeep Baror, Cryptonic Area Founder, Cyber Crime Investigator, Ethical Hacking Expert, Digital Forensics Specialist">
     <meta name="author" content="Karndeep Baror">
-    
-    <meta property="og:title" content="Karndeep Baror | Cyber Security Authority">
-    <meta property="og:description" content="Official Portfolio of Karndeep Baror. Investigation, Security Audits, and Community Leadership.">
-    <meta property="og:type" content="website">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Lexend+Deca:wght@300;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-color: #0f172a; /* Midnight Blue */
-            --accent-color: #38bdf8; /* Sky Cyan */
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --text-main: #f1f5f9;
-            --text-dim: #94a3b8;
-            --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --brand-main: #0066ff;
+            --brand-dark: #020617;
+            --brand-light: #f8fafc;
+            --accent: #22d3ee;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         * {
             margin: 0; padding: 0; box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: var(--brand-dark);
+            color: var(--text-primary);
             overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* Smooth reveal animation */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* --- BACKGROUND BLOBS --- */
+        .blob {
+            position: fixed; width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
+            z-index: -1; filter: blur(80px);
+        }
 
-        /* Navigation */
+        /* --- NAVIGATION --- */
         nav {
             position: fixed; width: 100%; top: 0; z-index: 1000;
-            padding: 25px 8%; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 20px 8%; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
         }
 
-        .logo { font-family: 'Lexend Deca'; font-weight: 800; font-size: 1.6rem; letter-spacing: -1px; }
-        .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px; }
+        .logo span { color: var(--brand-main); }
 
         .nav-links a {
-            color: var(--text-dim); text-decoration: none; margin-left: 35px;
+            color: var(--text-secondary); text-decoration: none; margin-left: 30px;
             font-size: 0.9rem; font-weight: 600; transition: 0.3s;
         }
-        .nav-links a:hover { color: var(--accent-color); }
+        .nav-links a:hover { color: var(--brand-main); }
 
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-            text-align: center; padding: 0 10%;
-            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent);
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 0 10%;
         }
 
-        .hero-content h1 {
-            font-family: 'Lexend Deca'; font-size: clamp(3rem, 8vw, 5.5rem);
-            line-height: 1; margin-bottom: 25px; font-weight: 800;
+        .badge {
+            background: rgba(0, 102, 255, 0.1); border: 1px solid var(--brand-main);
+            color: var(--brand-main); padding: 8px 20px; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 25px;
         }
 
-        .hero-subtitle {
-            font-size: 1.2rem; color: var(--text-dim); max-width: 700px; margin: 0 auto 40px;
+        .hero h1 {
+            font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800; line-height: 1.1; margin-bottom: 25px;
         }
 
-        .btn-main {
-            padding: 18px 45px; border-radius: 50px; background: var(--gradient);
+        .hero h1 span {
+            background: linear-gradient(to right, #fff, var(--brand-main));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem; color: var(--text-secondary);
+            max-width: 800px; margin-bottom: 40px;
+        }
+
+        .btn-prime {
+            padding: 18px 45px; border-radius: 12px; background: var(--brand-main);
             color: white; text-decoration: none; font-weight: 700;
-            display: inline-block; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
-            transition: 0.4s;
+            transition: 0.4s; border: none; cursor: pointer;
         }
-        .btn-main:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.5); }
+        .btn-prime:hover { background: #0052cc; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4); }
 
-        /* Cryptonic Area Section */
-        .community-hub {
-            padding: 100px 8%; background: rgba(255,255,255,0.02);
-            border-radius: 40px; margin: 0 5% 100px; border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .hub-flex { display: flex; align-items: center; gap: 60px; }
-        .comm-img { 
-            width: 250px; height: 250px; border-radius: 30px; 
-            background: url('./assets/cryptonic-logo.png') center/cover, #1e293b;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        /* --- COMMUNITY HUB --- */
+        .hub-section { padding: 100px 8%; }
+        .hub-container {
+            background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border);
+            padding: 50px; border-radius: 32px; display: grid;
+            grid-template-columns: 200px 1fr auto; align-items: center; gap: 40px;
         }
 
-        .hub-text h2 { font-size: 2.5rem; margin-bottom: 20px; font-family: 'Lexend Deca'; }
-        .hub-text p { color: var(--text-dim); margin-bottom: 30px; font-size: 1.1rem; }
-
-        /* Projects Section */
-        .section-tag { color: var(--accent-color); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 15px; }
-        
-        .projects-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px; padding: 100px 8%;
+        .comm-logo {
+            width: 180px; height: 180px; border-radius: 24px;
+            background: url('./assets/community-logo.png') center/cover, #1e293b;
+            border: 1px solid var(--glass-border);
         }
 
-        .proj-card {
-            background: var(--glass-bg); padding: 45px; border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.05); transition: 0.4s;
-        }
-        .proj-card:hover {
-            background: rgba(255,255,255,0.06); border-color: var(--accent-color);
-            transform: translateY(-10px);
+        .hub-info h2 { font-size: 2.2rem; margin-bottom: 15px; font-family: 'Outfit'; }
+        .hub-info p { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; }
+
+        /* --- PROJECTS GRID --- */
+        section { padding: 100px 8%; }
+        .section-header { text-align: left; margin-bottom: 60px; }
+        .section-header h2 { font-family: 'Outfit'; font-size: 3rem; }
+        .section-header div { width: 80px; height: 5px; background: var(--brand-main); margin-top: 15px; }
+
+        .project-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
-        .proj-card i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 25px; }
-        .proj-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-        .proj-card p { color: var(--text-dim); margin-bottom: 25px; font-size: 0.95rem; }
+        .p-card {
+            background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border);
+            padding: 40px; border-radius: 24px; transition: 0.4s;
+        }
+        .p-card:hover {
+            border-color: var(--brand-main); transform: translateY(-10px);
+            background: rgba(0, 102, 255, 0.03);
+        }
 
-        .btn-repo {
-            color: var(--text-main); text-decoration: none; font-weight: 700;
+        .p-card i { font-size: 2.5rem; color: var(--brand-main); margin-bottom: 25px; }
+        .p-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .p-card p { color: var(--text-secondary); margin-bottom: 25px; font-size: 0.95rem; }
+
+        .link-git {
+            color: #fff; text-decoration: none; font-weight: 700;
             display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
         }
 
-        /* Contact & Hire Section */
-        .contact-cta {
-            text-align: center; padding: 120px 10%;
-            background: linear-gradient(to bottom, transparent, rgba(56, 189, 248, 0.05));
+        /* --- HIRE ME SECTION --- */
+        .hire-me {
+            background: linear-gradient(135deg, #001f3f 0%, #000 100%);
+            padding: 100px 8%; border-radius: 40px; text-align: center;
+            margin: 50px 8%; border: 1px solid var(--glass-border);
         }
 
-        /* Footer */
+        /* --- FOOTER --- */
         footer {
-            padding: 60px 8%; border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 8%; border-top: 1px solid var(--glass-border);
             display: flex; justify-content: space-between; align-items: center;
         }
 
-        .social-icons a {
-            color: var(--text-dim); font-size: 1.5rem; margin-left: 25px; transition: 0.3s;
+        .socials-footer a {
+            color: var(--text-secondary); font-size: 1.4rem; margin-left: 20px; transition: 0.3s;
         }
-        .social-icons a:hover { color: var(--accent-color); transform: translateY(-5px); }
+        .socials-footer a:hover { color: var(--brand-main); }
 
-        /* Responsive */
         @media (max-width: 992px) {
-            .hub-flex { flex-direction: column; text-align: center; }
+            .hub-container { grid-template-columns: 1fr; text-align: center; justify-items: center; }
             nav { padding: 20px 5%; }
             .nav-links { display: none; }
         }
@@ -152,117 +169,104 @@
 </head>
 <body>
 
+    <div class="blob" style="top: -10%; left: -10%;"></div>
+    <div class="blob" style="bottom: -10%; right: -10%;"></div>
+
     <nav>
         <div class="logo">KARNDEEP <span>BAROR</span></div>
         <div class="nav-links">
             <a href="#about">EXPERTIS</a>
-            <a href="#community">COMMUNITY</a>
-            <a href="#projects">PROJECTS</a>
-            <a href="#contact">HIRE ME</a>
+            <a href="#hub">COMMUNITY</a>
+            <a href="#projects">PORTFOLIO</a>
+            <a href="#contact">CONTACT</a>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content reveal">
-            <span class="section-tag">Cyber Security Professional</span>
-            <h1>Investigator &<br>Ethical Hacker</h1>
-            <p class="hero-subtitle">Main Karndeep Baror hun, jo systems ko secure karne aur cyber crimes ki teh tak pahunchne mein expert hai. Cryptonic Area ka founder hone ke naate, mera lakshya digital duniya ko safe banana hai.</p>
-            <a href="#contact" class="btn-main">Karya Shuru Karein <i class="fas fa-arrow-right"></i></a>
+    <header class="hero">
+        <div class="badge">Chief Intelligence Officer</div>
+        <h1>Cyber <span>Investigator</span> & <br>Ethical Hacker</h1>
+        <p>Expert in Digital Forensics, Vulnerability Research, and Owner of Cryptonic Area. Providing professional-grade security solutions for a complex digital world.</p>
+        <div style="display: flex; gap: 20px;">
+            <a href="#contact" class="btn-prime">Initialize Contact</a>
+            <a href="#projects" class="btn-prime" style="background: transparent; border: 1px solid var(--glass-border);">View Repositories</a>
         </div>
-    </section>
+    </header>
 
-    <section id="community" class="reveal">
-        <div class="community-hub">
-            <div class="hub-flex">
-                <div class="comm-img"></div>
-                <div class="hub-text">
-                    <span class="section-tag">Management & Authority</span>
-                    <h2>Cryptonic Area Hub</h2>
-                    <p>Main is community ka **Admin aur Owner** hun. Hum cyber security learners aur professional hackers ko ek plateform dete hain jahan hum real-world threats aur investigations par baat karte hain.</p>
-                    <div style="display: flex; gap: 20px;">
-                        <a href="https://t.me/yourlink" target="_blank" class="btn-main" style="padding: 12px 30px; font-size: 0.9rem;">Join Community</a>
-                        <div class="social-icons" style="display: flex; align-items: center;">
-                            <a href="#"><i class="fab fa-discord"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
+    <section id="hub">
+        <div class="hub-container">
+            <div class="comm-logo" aria-label="Cryptonic Area Logo"></div>
+            <div class="hub-info">
+                <span style="color: var(--brand-main); font-weight: 800; font-size: 0.8rem; letter-spacing: 2px;">COMMUNITY FOUNDER</span>
+                <h2>Cryptonic Area Hub</h2>
+                <p>Strategic Admin and Founder of Cryptonic Area—a premier global network for Ethical Hackers and Cyber Researchers. Leading thousands in digital defense.</p>
+                <div class="socials-footer" style="text-align: left; margin: 0;">
+                    <a href="https://t.me/cryptonic" style="margin-left: 0; margin-right: 20px;"><i class="fab fa-telegram"></i></a>
+                    <a href="https://discord.gg/cryptonic"><i class="fab fa-discord"></i></a>
                 </div>
             </div>
+            <a href="https://your-community-link.com" target="_blank" class="btn-prime">Join Community <i class="fas fa-external-link-alt"></i></a>
         </div>
     </section>
 
     <section id="projects">
-        <div style="text-align: center;" class="reveal">
-            <span class="section-tag">Portfolio Repositories</span>
-            <h2 style="font-size: 2.5rem; font-family: 'Lexend Deca';">Featured Projects</h2>
+        <div class="section-header">
+            <span style="color: var(--brand-main); font-weight: 800; letter-spacing: 3px;">RESEARCH LAB</span>
+            <h2>Security Repositories</h2>
+            <div></div>
         </div>
 
-        <div class="projects-grid">
-            <div class="proj-card reveal">
+        <div class="project-grid">
+            <div class="p-card">
                 <i class="fas fa-fingerprint"></i>
-                <h3>Advanced OSINT System</h3>
-                <p>Digital investigation ke liye ek powerful framework jo social footprints trace karta hai.</p>
-                <a href="https://github.com/Karndeep/OSINT" target="_blank" class="btn-repo">View Source <i class="fas fa-external-link-alt"></i></a>
+                <h3>OSINT Nexus</h3>
+                <p>Advanced reconnaissance framework for deep-web intelligence gathering and footprint analysis.</p>
+                <a href="https://github.com/Karndeep/OSINT" target="_blank" class="link-git">SOURCE CODE <i class="fas fa-chevron-right"></i></a>
             </div>
-            <div class="proj-card reveal">
-                <i class="fas fa-user-shield"></i>
-                <h3>Pentest Automator</h3>
-                <p>Web applications ki vulnerabilities ko scan karne ka professional script.</p>
-                <a href="https://github.com/Karndeep/Pentest" target="_blank" class="btn-repo">View Source <i class="fas fa-external-link-alt"></i></a>
+            <div class="p-card">
+                <i class="fas fa-shield-virus"></i>
+                <h3>Vulnerability Engine</h3>
+                <p>Automated penetration testing toolkit for identifying enterprise-level network weaknesses.</p>
+                <a href="https://github.com/Karndeep/VAPT" target="_blank" class="link-git">SOURCE CODE <i class="fas fa-chevron-right"></i></a>
             </div>
-            <div class="proj-card reveal">
+            <div class="p-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Forensic Carver Pro</h3>
+                <p>Digital evidence recovery tool designed for rapid artifact extraction during investigations.</p>
+                <a href="https://github.com/Karndeep/Forensics" target="_blank" class="link-git">SOURCE CODE <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="p-card">
                 <i class="fas fa-network-wired"></i>
-                <h3>Packet Analyzer Pro</h3>
-                <p>Real-time network traffic analysis aur threat detection system.</p>
-                <a href="https://github.com/Karndeep/Analyzer" target="_blank" class="btn-repo">View Source <i class="fas fa-external-link-alt"></i></a>
+                <h3>Intrusion Monitor</h3>
+                <p>A zero-latency monitoring system for detecting real-time malicious packet injections.</p>
+                <a href="https://github.com/Karndeep/Monitor" target="_blank" class="link-git">SOURCE CODE <i class="fas fa-chevron-right"></i></a>
             </div>
-            <div class="proj-card reveal">
-                <i class="fas fa-lock"></i>
-                <h3>Zero-Trust Firewall</h3>
-                <p>Server security ke liye ek advanced zero-trust architecture configuration tool.</p>
-                <a href="https://github.com/Karndeep/Firewall" target="_blank" class="btn-repo">View Source <i class="fas fa-external-link-alt"></i></a>
-            </div>
-            <div class="proj-card reveal">
-                <i class="fas fa-search-plus"></i>
-                <h3>Forensic Data Carver</h3>
-                <p>Deleted files aur digital evidence recover karne ka specialized tool.</p>
-                <a href="https://github.com/Karndeep/Forensics" target="_blank" class="btn-repo">View Source <i class="fas fa-external-link-alt"></i></a>
+            <div class="p-card">
+                <i class="fas fa-user-lock"></i>
+                <h3>Auth Defender</h3>
+                <p>Identity and Access Management (IAM) security script for hardening cloud environments.</p>
+                <a href="https://github.com/Karndeep/Defender" target="_blank" class="link-git">SOURCE CODE <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-cta reveal">
-        <h2 style="font-family: 'Lexend Deca'; font-size: 3rem; margin-bottom: 20px;">Chaliye Saath Kaam Karte Hain</h2>
-        <p style="color: var(--text-dim); margin-bottom: 40px;">Investigation, Consulting ya Community partnerships ke liye mujhe email karein.</p>
-        <a href="mailto:karndeep@example.com" class="btn-main" style="padding: 20px 60px; font-size: 1.1rem;">Email Bhejein (Encrypted)</a>
+    <section id="contact">
+        <div class="hire-me">
+            <h2 style="font-family: 'Outfit'; font-size: 3rem; margin-bottom: 20px;">Secure Your Organization</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px;">Available for Professional Consulting, Cyber Investigations, and Security Training Programs.</p>
+            <a href="mailto:karndeep@example.com" class="btn-prime" style="font-size: 1.1rem; padding: 20px 60px;">Send Secure Inquiry</a>
+        </div>
     </section>
 
     <footer>
         <div class="logo">KARNDEEP <span>BAROR</span></div>
-        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 OWNER OF CRYPTONIC AREA. ALL RIGHTS RESERVED.</p>
-        <div class="social-icons">
+        <p style="color: var(--text-secondary); font-size: 0.8rem;">&copy; 2026 Admin of Cryptonic Area. All Rights Reserved.</p>
+        <div class="socials-footer">
             <a href="https://linkedin.com/in/karndeep" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://github.com/karndeep" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://twitter.com/karndeep" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://instagram.com/karndeep" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
-
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        // To trigger on load
-        reveal();
-    </script>
 
     <script type="application/ld+json">
     {
@@ -270,17 +274,17 @@
       "@type": "Person",
       "name": "Karndeep Baror",
       "jobTitle": "Cyber Security Investigator",
+      "url": "https://karndeepbaror.com",
       "worksFor": {
         "@type": "Organization",
         "name": "Cryptonic Area"
       },
-      "url": "https://yourdomain.com",
       "sameAs": [
         "https://linkedin.com/in/karndeep",
         "https://github.com/karndeep"
       ]
     }
     </script>
+
 </body>
-    </html>
-    
+</html>
