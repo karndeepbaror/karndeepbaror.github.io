@@ -3,196 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POWER GENERATION COMMAND | UNIT-04</title>
+    <title>POWER COMMAND CENTER | UNIT-04</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --hmi-bg: #080a0f;
-            --hmi-panel: #11141b;
-            --hmi-border: #232a35;
-            --neon-blue: #00d4ff;
-            --neon-green: #39ff14;
-            --neon-orange: #ff9d00;
+            --bg: #05070a;
+            --panel: #0d1117;
+            --border: #1f2937;
+            --cyan: #00d4ff;
+            --green: #39ff14;
+            --orange: #ff9d00;
         }
 
         body {
-            background-color: var(--hmi-bg);
-            color: #d1d5db;
+            background-color: var(--bg);
+            color: #8b949e;
             font-family: 'Share Tech Mono', monospace;
-            overflow: hidden; /* Scroll khatam kar diya */
             height: 100vh;
-            padding: 8px;
-        }
-
-        .hmi-panel {
-            background: var(--hmi-panel);
-            border: 1px solid var(--hmi-border);
-            position: relative;
-        }
-
-        .flow-path {
-            stroke-dasharray: 10;
-            animation: flow-move 1s linear infinite;
-        }
-        @keyframes flow-move { to { stroke-dashoffset: -20; } }
-
-        /* Scanning effect line */
-        .scan-line {
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            background: rgba(0, 212, 255, 0.2);
-            animation: scan-move 3s linear infinite;
-        }
-        @keyframes scan-move { 0% { top: 0; } 100% { top: 100%; } }
-
-        .lcd-box {
-            background: rgba(0,0,0,0.5);
-            border: 1px solid #1a202c;
-            padding: 4px;
-        }
-
-        /* 3-Row Compact Grid */
-        .main-grid {
+            margin: 0;
+            padding: 10px;
             display: grid;
-            grid-template-columns: 260px 1fr 280px;
-            grid-template-rows: 50px 1fr 160px; /* Fixed Height Rows */
+            grid-template-rows: 50px 1fr 1fr 60px; /* 4-Level Balanced Stack */
+            grid-template-columns: 1fr 1fr 1fr 1fr; /* 4-Column Balanced Grid */
             gap: 10px;
-            height: 100%;
+            overflow: hidden;
         }
 
-        .compact-label { font-size: 9px; color: #718096; text-transform: uppercase; }
-        .data-val { font-size: 14px; font-weight: bold; }
+        .module {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Filling the center gap by making modules span across */
+        .span-2 { grid-column: span 2; }
+        .span-3 { grid-column: span 3; }
+
+        .label { font-size: 10px; color: #484f58; text-transform: uppercase; letter-spacing: 1px; }
+        .value { font-size: 18px; color: var(--cyan); font-weight: bold; }
+        
+        .flow-line {
+            stroke-dasharray: 8;
+            animation: move 1s linear infinite;
+        }
+        @keyframes move { to { stroke-dashoffset: -16; } }
+
+        /* Industrial Background Pattern to remove blank feel */
+        .module::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 10px 10px;
+            pointer-events: none;
+        }
     </style>
 </head>
-<body class="select-none">
+<body>
 
-    <div class="main-grid">
-        
-        <header class="col-span-3 hmi-panel flex justify-between items-center px-4 border-l-4 border-blue-500">
-            <div class="flex items-center gap-6">
-                <div class="flex items-center gap-2">
-                    <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                    <h1 class="text-sm font-bold tracking-tighter uppercase">Power Grid Command Terminal | U-04</h1>
-                </div>
-                <span class="text-[10px] text-blue-400">STATUS: SYNCHRONIZED</span>
-            </div>
-            <div class="flex gap-8 text-[11px]">
-                <span class="text-orange-400">LOAD: 842MW</span>
-                <span class="text-green-400">FREQ: 50.01Hz</span>
-                <span class="text-gray-500">16-03-2026 | 09:55:01</span>
-            </div>
-        </header>
+    <div class="module span-3 flex-row !justify-start items-center gap-8 border-l-4 border-cyan-500">
+        <h1 class="text-white font-bold text-sm tracking-widest">THERMAL GEN-STATION | UNIT_04</h1>
+        <div class="h-4 w-px bg-gray-700"></div>
+        <div class="text-[10px]"><span class="text-green-500">●</span> SYSTEM_READY</div>
+        <div class="text-[10px]"><span class="text-orange-500">●</span> SYNC_ACTIVE</div>
+    </div>
+    <div class="module flex-row items-center justify-center">
+        <span class="text-[12px] text-white">16:03:2026 | 10:15:42</span>
+    </div>
 
-        <aside class="hmi-panel p-3 flex flex-col gap-3">
-            <h2 class="text-[10px] text-blue-400 border-b border-gray-800 pb-1">TURBINE METRICS</h2>
-            <div class="space-y-3">
-                <div class="lcd-box">
-                    <p class="compact-label">Oil Temp</p>
-                    <span class="data-val text-green-400">42.8°C</span>
-                </div>
-                <div class="lcd-box">
-                    <p class="compact-label">Steam Pressure</p>
-                    <span class="data-val text-blue-400">16.4MPa</span>
-                </div>
-                <div class="lcd-box">
-                    <p class="compact-label">Shaft Speed</p>
-                    <span class="data-val text-white">3000 RPM</span>
-                </div>
-            </div>
-            <div class="mt-4 border-t border-gray-800 pt-3">
-                <p class="compact-label mb-2">Switchgear 11KV</p>
-                <div class="grid grid-cols-2 gap-2">
-                    <div class="text-[8px] bg-green-900/20 p-1 border border-green-500/30">BRK_01: CLOSED</div>
-                    <div class="text-[8px] bg-red-900/20 p-1 border border-red-500/30">BRK_02: OPEN</div>
-                </div>
-            </div>
-        </aside>
+    <div class="module">
+        <span class="label">Turbine RPM</span>
+        <span class="value">3000.12</span>
+        <div class="w-full bg-gray-900 h-1 mt-2"><div class="bg-cyan-500 h-full w-[90%] shadow-[0_0_5px_cyan]"></div></div>
+    </div>
+    <div class="module">
+        <span class="label">Main Steam Temp</span>
+        <span class="value text-orange-500">542.4 °C</span>
+        <div class="w-full bg-gray-900 h-1 mt-2"><div class="bg-orange-500 h-full w-[75%]"></div></div>
+    </div>
+    <div class="module">
+        <span class="label">Grid Frequency</span>
+        <span class="value text-green-500">50.00 Hz</span>
+        <div class="w-full bg-gray-900 h-1 mt-2"><div class="bg-green-500 h-full w-[100%]"></div></div>
+    </div>
+    <div class="module">
+        <span class="label">Active Load</span>
+        <span class="value">842.1 MW</span>
+        <div class="w-full bg-gray-900 h-1 mt-2"><div class="bg-blue-500 h-full w-[82%]"></div></div>
+    </div>
 
-        <main class="flex flex-col gap-3 h-full">
-            <div class="hmi-panel flex-1 p-2 bg-black/10 overflow-hidden">
-                <div class="scan-line"></div>
-                <h2 class="text-[10px] text-blue-400 mb-1 uppercase">Process Visualization</h2>
-                <svg class="w-full h-[85%]" viewBox="0 0 600 240">
-                    <rect x="20" y="40" width="70" height="150" rx="2" fill="#141820" stroke="#ff3131" />
-                    <text x="35" y="120" fill="#ff3131" font-size="9">BOILER</text>
-                    <path d="M 90 80 L 220 80" stroke="#ff9d00" stroke-width="3" class="flow-path" fill="none" />
-                    <polygon points="220,60 320,80 320,140 220,160" fill="#232a35" stroke="#00d4ff" />
-                    <text x="245,115" fill="#00d4ff" font-size="10">TURBINE</text>
-                    <path d="M 320 110 L 450 110" stroke="#39ff14" stroke-width="3" class="flow-path" fill="none" />
-                    <rect x="450" y="80" width="80" height="60" rx="2" fill="#141820" stroke="#39ff14" />
-                    <text x="465" y="115" fill="#39ff14" font-size="9">GENERATOR</text>
-                </svg>
-            </div>
+    <div class="module span-2 !p-0 overflow-hidden bg-black/40">
+        <div class="p-2 border-b border-gray-800 label">P&ID Process Flow</div>
+        <svg class="w-full h-full p-4" viewBox="0 0 400 180">
+            <rect x="20" y="40" width="60" height="100" fill="#161b22" stroke="#ff3131" />
+            <path d="M 80 70 L 180 70" stroke="#ff9d00" stroke-width="2" class="flow-line" fill="none" />
+            <polygon points="180,50 260,70 260,110 180,130" fill="#161b22" stroke="#00d4ff" />
+            <path d="M 260 90 L 340 90" stroke="#39ff14" stroke-width="2" class="flow-line" fill="none" />
+            <rect x="340" y="60" width="40" height="60" fill="#161b22" stroke="#39ff14" />
+        </svg>
+    </div>
 
-            <div class="h-32 flex gap-3">
-                <div class="hmi-panel flex-1 p-2">
-                    <p class="compact-label text-blue-400">Load Trend (24h)</p>
-                    <svg viewBox="0 0 200 60" class="w-full h-16">
-                        <polyline points="0,50 40,45 80,48 120,30 160,35 200,10" fill="none" stroke="#00d4ff" stroke-width="1.5" />
-                    </svg>
-                </div>
-                <div class="hmi-panel flex-1 p-2">
-                    <p class="compact-label text-orange-400">Heat Efficiency</p>
-                    <div class="flex items-center justify-center h-16">
-                        <span class="text-2xl font-bold text-orange-500">94.2%</span>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <div class="module">
+        <span class="label mb-2">Auxiliary Systems</span>
+        <div class="space-y-2 text-[10px]">
+            <div class="flex justify-between border-b border-gray-800 pb-1"><span>Condenser:</span><span class="text-white">OK</span></div>
+            <div class="flex justify-between border-b border-gray-800 pb-1"><span>Cooling:</span><span class="text-white">94%</span></div>
+            <div class="flex justify-between border-b border-gray-800 pb-1"><span>Fuel Feed:</span><span class="text-white">140t/h</span></div>
+            <div class="flex justify-between"><span>Excit. V:</span><span class="text-white">415V</span></div>
+        </div>
+    </div>
+    
+    <div class="module">
+        <span class="label mb-2 text-red-500">Live Alarms</span>
+        <div class="text-[9px] space-y-2">
+            <div class="text-orange-400 bg-orange-950/20 p-1 border-l-2 border-orange-500">U4-LUB-LOW-PRES</div>
+            <div class="text-gray-500 p-1 border-l-2 border-gray-700">COMM_STABLE_VLAN12</div>
+            <div class="text-green-500 p-1 border-l-2 border-green-500">SYNC_GATE_OPEN</div>
+        </div>
+    </div>
 
-        <aside class="hmi-panel p-3 flex flex-col gap-3">
-            <h2 class="text-[10px] text-blue-400 border-b border-gray-800 pb-1">ALARM ANNUNCIATOR</h2>
-            <div class="flex-1 space-y-2 text-[9px]">
-                <div class="bg-red-900/10 border border-red-500/30 p-2 text-red-400 animate-pulse">
-                    CRIT: VIBRATION SENSOR U4-B3
-                </div>
-                <div class="bg-yellow-900/10 border border-yellow-500/30 p-2 text-yellow-400">
-                    WARN: FUEL FEEDER SLIPPAGE
-                </div>
-                <div class="bg-blue-900/10 border border-blue-500/30 p-2 text-blue-400">
-                    INFO: PLC_01 SYNC SUCCESS
-                </div>
-            </div>
-            <div class="lcd-box mt-auto">
-                <p class="compact-label">Pump Status</p>
-                <div class="flex justify-between mt-1 text-[10px]">
-                    <span class="text-green-500">PUMP_A: RUN</span>
-                    <span class="text-gray-600">PUMP_B: STBY</span>
-                </div>
-            </div>
-        </aside>
+    <div class="module span-2 flex-row gap-4 items-center">
+        <div class="flex-1">
+            <span class="label">24H Output Trend</span>
+            <svg viewBox="0 0 200 40" class="w-full h-8 mt-1">
+                <path d="M0 35 Q 40 10, 80 30 T 160 20 T 200 5" fill="none" stroke="var(--cyan)" stroke-width="2" />
+            </svg>
+        </div>
+        <div class="flex-1 border-l border-gray-800 pl-4">
+            <span class="label">Efficiency Index</span>
+            <div class="text-xl font-bold text-white mt-1">98.42%</div>
+        </div>
+    </div>
 
-        <footer class="col-span-3 grid grid-cols-3 gap-3">
-            <div class="hmi-panel p-2">
-                <h3 class="compact-label text-orange-400">Zone Distribution</h3>
-                <div class="flex items-end gap-1 h-20 pt-2">
-                    <div class="bg-blue-500/40 w-full h-[60%]"></div>
-                    <div class="bg-blue-500/40 w-full h-[85%]"></div>
-                    <div class="bg-blue-500/40 w-full h-[40%]"></div>
-                    <div class="bg-blue-500/40 w-full h-[70%]"></div>
-                </div>
-            </div>
-            <div class="hmi-panel p-2 bg-black/50">
-                <h3 class="compact-label text-green-400">Comms Log</h3>
-                <div class="text-[8px] font-mono leading-tight">
-                    <p class="text-green-500">>> POLLING NODE_01... OK</p>
-                    <p class="text-blue-400">>> AES-256 HANDSHAKE VALID</p>
-                    <p class="text-gray-500">>> MODBUS PACKET RECEIVED</p>
-                </div>
-            </div>
-            <div class="hmi-panel p-2">
-                <h3 class="compact-label text-blue-400">Plant Index</h3>
-                <div class="space-y-1 text-[10px]">
-                    <div class="flex justify-between"><span>Heat Rate:</span><span>2240</span></div>
-                    <div class="flex justify-between"><span>Availability:</span><span class="text-green-500">98%</span></div>
-                    <div class="flex justify-between"><span>CO2:</span><span class="text-orange-500">0.92</span></div>
-                </div>
-            </div>
-        </footer>
+    <div class="module">
+        <span class="label">Reactive Power</span>
+        <span class="text-md text-white font-bold mt-1">124.5 MVAr</span>
+    </div>
+    
+    <div class="module bg-blue-900/10 border-blue-800/50">
+        <span class="label text-blue-400">Cyber Security</span>
+        <span class="text-[10px] text-blue-300 mt-1 uppercase font-bold">Encrypted Node</span>
+    </div>
 
+    <div class="module span-4 flex-row items-center !bg-black border-t-2 border-gray-800">
+        <div class="flex gap-10 text-[9px] uppercase tracking-tighter">
+            <span>DNP3: ACTIVE</span>
+            <span>MODBUS: POLLING</span>
+            <span>IEC-61850: SYNC</span>
+            <span class="text-green-500">● MASTER TERMINAL ONLINE</span>
+        </div>
     </div>
 
 </body>
